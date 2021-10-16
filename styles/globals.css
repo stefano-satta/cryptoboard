@@ -1,3 +1,12 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+:root {
+  --blue: #1d3f83;
+  --white: #fff;
+  --black: #000;
+  --wall: #f0f3ff;
+}
+
 html,
 body {
   padding: 0;
@@ -14,3 +23,39 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.bg-primary { background-color: var(--blue) !important;}
+.bg-wall { background-color: var(--wall) !important;}
+.text-center { text-align: center;}
+.text-white { color: var(--white);}
+.active { background: rgba(255,255,255, .1); color: var(--white) !important; border-right: 2px solid var(--white)}
+
+
+/* sidebarnav */
+.sidebar {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100vh !important;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+#sidebar-wrapper{
+  min-height: 100vh !important;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#page-content-wrapper {
+  width: 100%;
+  margin-left: 15rem;
+}
+/* footer */
+#footer .ant-typography {margin-bottom: 0;}
