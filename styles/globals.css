@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
@@ -11,8 +13,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 a {
@@ -25,11 +27,13 @@ a {
 }
 
 .bg-primary { background-color: var(--blue) !important;}
+.bg-white { background-color: var(--white) !important}
 .bg-wall { background-color: var(--wall) !important;}
 .text-center { text-align: center;}
 .text-white { color: var(--white);}
-.active { background: rgba(255,255,255, .1); color: var(--white) !important; border-right: 2px solid var(--white)}
-
+.fw-semi-bold { font-weight: 600;}
+.active { background: var(--wall); margin: 0 50px}
+.rounded { border-radius: 1rem !important;}
 
 /* sidebarnav */
 .sidebar {
@@ -57,5 +61,7 @@ a {
   width: 100%;
   margin-left: 15rem;
 }
+
+
 /* footer */
 #footer .ant-typography {margin-bottom: 0;}

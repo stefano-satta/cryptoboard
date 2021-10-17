@@ -11,7 +11,7 @@ const RouterLayout: FC<BaseHTMLAttributes<HTMLElement>> = ({children}) => {
             </div>
             
             <div id="page-content-wrapper">
-                <div  className="py-5 px-3 bg-wall">
+                <div  className="py-5 px-5 bg-wall">
                     {children}
                 </div>
                 <Footer/>

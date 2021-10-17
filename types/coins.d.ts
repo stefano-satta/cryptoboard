@@ -5,7 +5,7 @@ type Status = {
 }
 
 interface CoinsResponse extends Status {
-    data: any;
+    data: CoinsData;
 }
 
 interface CoinsData {

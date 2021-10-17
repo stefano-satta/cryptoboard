@@ -1,19 +1,22 @@
-import type { GetStaticPropsResult, NextPage } from 'next'
+import type { GetServerSidePropsResult, GetStaticPropsResult, NextPage } from 'next'
+import React from 'react'
+import Cryptos from '../components/feature/Cryptos'
+import Stats from '../components/feature/Stats'
 
 
 const Home: NextPage<CoinsResponse> = (coins: CoinsResponse) => {
-  
   console.log(coins)
   return (<> 
-    home
+    <Stats stats={coins.data?.stats}/>
+    <Cryptos cryptos={coins.data.coins}/>
   </>)
 }
 
 
-export async function getStaticProps(): Promise<GetStaticPropsResult<any>> {
+export async function getServerSideProps(): Promise<GetServerSidePropsResult<CoinsResponse>> {
   const headers = {
-    'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-    'x-rapidapi-key': '72e7b75a29msh165146488a8416bp12c17ejsn9473867a644b'
+    'x-rapidapi-host': process.env.coinRankingHost ?? '',
+    'x-rapidapi-key': process.env.rapidApiKey ?? ''
   }
 
   const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=10', {headers});

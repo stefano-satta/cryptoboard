@@ -7,23 +7,23 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { Nav } from 'react-bootstrap';
 library.add(fas, fab);
-React.useLayoutEffect = React.useEffect 
+// React.useLayoutEffect = React.useEffect 
 
 const SidebarNav = () => {
     const router = useRouter();
 
     return (
-        <Nav className="d-none d-md-block bg-light sidebar position-fixed bg-primary text-white" style={{width: '15rem'}}>
-            <Nav.Item className={`ps-4 py-3 align-middle ${router.pathname === '/' ? 'active': ''}`}>
-                <Link href="/">Homepage</Link>
+        <Nav className="d-none d-md-block bg-light sidebar position-fixed bg-white text-center" style={{width: '15rem'}}>
+            <Nav.Item className={`mx-4 rounded py-3 align-middle ${router.pathname === '/' ? 'active': ''}`}>
+                <Link href="/">Dashboard</Link>
             </Nav.Item>
-            <Nav.Item className={`ps-4 py-3 ${router.pathname === '/cryptos' ? 'active': ''}`}>
+            <Nav.Item className={`mx-4 rounded py-3 ${router.pathname === '/cryptos' ? 'active': ''}`}>
                 <Link href="/cryptos">Cryptos</Link>
             </Nav.Item>
-            <Nav.Item className={`ps-4 py-3 ${router.pathname === '/exhanges' ? 'active': ''}`}>
+            <Nav.Item className={`mx-4 rounded py-3 ${router.pathname === '/exhanges' ? 'active': ''}`}>
                 <Link href="/exhanges">Exchanges</Link>
             </Nav.Item>
-            <Nav.Item className={`ps-4 py-3 ${router.pathname === '/news' ? 'active': ''}`}>
+            <Nav.Item className={`mx-4 rounded py-3 ${router.pathname === '/news' ? 'active': ''}`}>
                 <Link href="/news">News</Link>
             </Nav.Item>
         </Nav>
