@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/dist/client/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,17 +13,27 @@ const SidebarNav = () => {
     const router = useRouter();
 
     return (
-        <Nav className="d-none d-md-block bg-light sidebar position-fixed bg-white text-center" style={{width: '15rem'}}>
-            <Nav.Item className={`mx-4 rounded py-3 align-middle ${router.pathname === '/' ? 'active': ''}`}>
+        <Nav className="d-none d-md-block bg-light sidebar position-fixed bg-white" style={{width: '15rem'}}>
+            <Link href="/">
+                <h1 className="ps-2 mb-5 fs-2 fw-bold cursor-pointer">
+                    <FontAwesomeIcon icon={['fab', 'bitcoin']} className="me-2"/>
+                    Cryptoboard
+                </h1>
+            </Link>            
+            <Nav.Item className={`mx-4 rounded py-3 ps-4 ${router.pathname === '/' ? 'active': ''}`}>
+                <FontAwesomeIcon icon={'table'} className="me-3" size="lg"/>
                 <Link href="/">Dashboard</Link>
             </Nav.Item>
-            <Nav.Item className={`mx-4 rounded py-3 ${router.pathname === '/cryptos' ? 'active': ''}`}>
-                <Link href="/cryptos">Cryptos</Link>
+            <Nav.Item className={`mx-4 rounded py-3 ps-4 ${router.pathname === '/cryptocurrencies' ? 'active': ''}`}>
+                <FontAwesomeIcon icon={'chart-line'} className="me-3" size="lg"/>
+                <Link href="/cryptocurrencies">Cryptos</Link>
             </Nav.Item>
-            <Nav.Item className={`mx-4 rounded py-3 ${router.pathname === '/exhanges' ? 'active': ''}`}>
-                <Link href="/exhanges">Exchanges</Link>
+            <Nav.Item className={`mx-4 rounded py-3 ps-4 ${router.pathname === '/exchanges' ? 'active': ''}`}>
+                <FontAwesomeIcon icon={'handshake'} className="me-3" size="lg"/>
+                <Link href="/exchanges">Exchanges</Link>
             </Nav.Item>
-            <Nav.Item className={`mx-4 rounded py-3 ${router.pathname === '/news' ? 'active': ''}`}>
+            <Nav.Item className={`mx-4 rounded py-3 ps-4 ${router.pathname === '/news' ? 'active': ''}`}>
+                <FontAwesomeIcon icon={'newspaper'} className="me-3" size="lg"/>
                 <Link href="/news">News</Link>
             </Nav.Item>
         </Nav>

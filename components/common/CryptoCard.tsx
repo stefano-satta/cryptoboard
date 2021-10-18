@@ -1,6 +1,8 @@
 import React, { FC } from "react";
 import { Card, Badge } from "react-bootstrap";
 import Image from 'next/image'
+import Link from 'next/link'
+
 
 interface CyptoCardProps {
     crypto: Coin;
@@ -10,7 +12,8 @@ interface CyptoCardProps {
 const CryptoCard: FC<CyptoCardProps> = ({crypto}: CyptoCardProps) => {
 
     return (<>
-        <Card style={{ width: '32%' }} className="border-0 rounded p-2 mb-4">
+    <Link href={`/cryptocurrencies/${crypto.id}`}>
+        <Card style={{ width: '32%' }} className="border-0 rounded p-2 mb-4 cursor-pointer">
             <Card.Body>
                 <Card.Title className="d-flex align-items-center justify-content-between mb-5">
                     <div className="d-flex align-items-center">
@@ -22,15 +25,20 @@ const CryptoCard: FC<CyptoCardProps> = ({crypto}: CyptoCardProps) => {
                     </div>
                 </Card.Title>
             
-                <Card.Text>
-                    <p className="mb-1"><span className="text-muted">Price:</span> <span className="">{crypto.price}</span></p>
-                    <p className="mb-1"><span className="text-muted">Rank:</span> <span className="">{crypto.rank}</span></p>
-                    <p className="mb-1"><span className="text-muted">Market Cap:</span> <span className="">{crypto.marketCap}</span></p>
+                <Card.Text className="mb-1">
+                    <span className="text-muted">Price:</span> <span className="">{crypto.price}</span>
+                </Card.Text>
+                <Card.Text className="mb-1">
+                <span className="text-muted">Rank:</span> <span className="">{crypto.rank}</span>
+                </Card.Text>
+                <Card.Text className="mb-1">
+                    <span className="text-muted">Market Cap:</span> <span className="">{crypto.marketCap}</span>
                 </Card.Text>
                 <Card.Link href="#">Card Link</Card.Link>
                 <Card.Link href="#">Another Link</Card.Link>
             </Card.Body>
         </Card>
+    </Link>
     </>)
 }
 

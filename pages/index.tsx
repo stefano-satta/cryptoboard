@@ -1,11 +1,11 @@
-import type { GetServerSidePropsResult, GetStaticPropsResult, NextPage } from 'next'
+import type { GetServerSidePropsResult, NextPage } from 'next'
 import React from 'react'
 import Cryptos from '../components/feature/Cryptos'
 import Stats from '../components/feature/Stats'
 
 
 const Home: NextPage<CoinsResponse> = (coins: CoinsResponse) => {
-  console.log(coins)
+  
   return (<> 
     <Stats stats={coins.data?.stats}/>
     <Cryptos cryptos={coins.data.coins}/>
