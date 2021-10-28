@@ -11,16 +11,16 @@ const Cryptocurrencies: NextPage<CoinsResponse> = (coins: CoinsResponse) => {
 
 
 export async function getServerSideProps(): Promise<GetServerSidePropsResult<CoinsResponse>> {
-    const headers = {
-      'x-rapidapi-host': process.env.coinRankingHost ?? '',
-      'x-rapidapi-key': process.env.rapidApiKey ?? ''
-    }
-  
-    const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=100', {headers});
-    const coins: CoinsResponse = await resCrypto.json();
-  
-    return !coins ? {notFound: true} : {props: {status: coins.status, data: coins.data}}
+  const headers = {
+    'x-rapidapi-host': process.env.coinRankingHost ?? '',
+    'x-rapidapi-key': process.env.rapidApiKey ?? ''
   }
+
+  const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=100', {headers});
+  const coins: CoinsResponse = await resCrypto.json();
+
+  return !coins ? {notFound: true} : {props: {status: coins.status, data: coins.data}}
+}
   
 
 export default Cryptocurrencies;

@@ -21,21 +21,31 @@ const CryptoCard: FC<CyptoCardProps> = ({crypto}: CyptoCardProps) => {
                         <span className="ms-2 fw-semi-bold">{crypto.name}</span>
                     </div>
                     <div>
-                        <Badge bg={crypto.change > 0 ? 'success': 'danger'}>{crypto.change}</Badge>
+                        <Badge bg={crypto.change > 0 ? 'success': 'danger'}>{crypto.change > 0 ? '+':''}{crypto.change}</Badge>
                     </div>
                 </Card.Title>
             
                 <Card.Text className="mb-1">
-                    <span className="text-muted">Price:</span> <span className="">{crypto.price}</span>
+                    <span className="text-muted">Price:</span> <span className="fs-5 fw-bold">
+                        {new Intl.NumberFormat('en-US', 
+                            { style: 'currency', currency: 'USD'})
+                            .format(Number(crypto.price))
+                        }
+                    </span>
                 </Card.Text>
                 <Card.Text className="mb-1">
-                <span className="text-muted">Rank:</span> <span className="">{crypto.rank}</span>
+                <span className="text-muted">Rank #:</span> <span className="">{crypto.rank}</span>
                 </Card.Text>
                 <Card.Text className="mb-1">
-                    <span className="text-muted">Market Cap:</span> <span className="">{crypto.marketCap}</span>
+                    <span className="text-muted">Market Cap:</span> <span className="">
+                        {new Intl.NumberFormat('en-US', 
+                            { style: 'currency', currency: 'USD'})
+                            .format(crypto.marketCap)
+                        }
+                    </span>
                 </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                {/* <Card.Link href="#">Card Link</Card.Link>
+                <Card.Link href="#">Another Link</Card.Link> */}
             </Card.Body>
         </Card>
     </Link>
