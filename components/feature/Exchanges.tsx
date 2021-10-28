@@ -63,7 +63,7 @@ const ExchangesCrypto: FC<ExchangesProps> = ({exchanges}: ExchangesProps) => {
                                     </Button>
                                     </OverlayTrigger>
 
-                                    <a href={exchange.websiteUrl} target="_blank" className="text-grey">
+                                    <a href={exchange.websiteUrl} target="_blank" rel="noreferrer" className="text-grey">
                                         <FontAwesomeIcon icon={'link'} className="me-3" size={'sm'}/>
                                     </a>
                                 </td>
