@@ -1,14 +1,14 @@
-export interface ExchangesResponse extends Status {
+interface ExchangesResponse extends Status {
     data: ExchangesData;
 }
 
-export interface ExchangesData {
+interface ExchangesData {
     stats: Stats;
     currencies: Currency[];
     exchanges: Exchange[];
 }
 
-export interface Currency {
+interface Currency {
     id: number;
     uuid: string;
     type: string;
@@ -18,7 +18,7 @@ export interface Currency {
     sign: string;
 }
 
-export interface Exchange {
+interface Exchange {
     id: number;
     uuid: string;
     name: string;
@@ -33,7 +33,7 @@ export interface Exchange {
     marketShare: number;
 }
 
-export interface Stats {
+interface Stats {
     volume: number;
     total: number;
     limit: number;

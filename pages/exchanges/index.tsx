@@ -1,6 +1,6 @@
 import { GetServerSidePropsResult, NextPage } from "next";
 import ExchangesCrypto from "../../components/feature/Exchanges";
-import { ExchangesResponse } from "../../types/exchanges";
+
 
 const Exchanges: NextPage<ExchangesResponse> = (exchanges: ExchangesResponse) => {
     return (<>

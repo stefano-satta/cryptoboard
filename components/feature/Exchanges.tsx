@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Button, OverlayTrigger, Popover, Table } from "react-bootstrap";
-import { Exchange } from "../../types/exchanges";
 import Image from 'next/image'
 import HTMLReactParser from "html-react-parser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
