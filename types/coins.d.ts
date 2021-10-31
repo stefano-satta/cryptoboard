@@ -79,3 +79,31 @@ interface AllTimeHigh {
     price: string;
     timestamp: number;
 }
+
+
+interface CoinResponse extends Status {
+    data: CoinData;
+}
+
+interface CoinData {
+    base: Base;
+    coin: Coin;
+}
+
+interface HistoryResponse extends Status {
+    data: HistoryData;
+}
+
+interface HistoryData {
+    change: number;
+    history: History[];
+}
+
+interface History {
+    price: string;
+    timestamp: number;
+}
+
+interface CoinHistoryResponse extends Status {
+    data: {coin: CoinData, history: HistoryData}
+}
