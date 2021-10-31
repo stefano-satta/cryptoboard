@@ -29,13 +29,20 @@ const Stats: FC<StatsProps> = ({stats}: StatsProps) => {
                 <Col>
                     <div>
                         <span className="fs-6 text-muted">Total Market Cap</span><br/>
-                        <span className="fs-4">{stats.totalMarketCap}</span>
+                        <span className="fs-4">
+                            { new Intl.NumberFormat('en-US', 
+                                { style: 'currency', currency: 'USD'})
+                                    .format(stats.totalMarketCap)}</span>
                     </div>
                 </Col>
                 <Col>
                     <div>
                         <span className="fs-6 text-muted">Total Volume (24h)</span><br/>
-                        <span className="fs-4">{stats.total24hVolume}</span>
+                        <span className="fs-4">
+                            {   new Intl.NumberFormat('en-US', 
+                                { style: 'currency', currency: 'USD'})
+                                    .format(stats.total24hVolume)}
+                        </span>
                     </div>
                 </Col>
             </Row>
@@ -44,12 +51,6 @@ const Stats: FC<StatsProps> = ({stats}: StatsProps) => {
                     <div>
                         <span className="fs-6 text-muted">Total Market</span><br/>
                         <span className="fs-4">{stats.totalMarkets}</span>
-                    </div>
-                </Col>
-                <Col>
-                    <div>
-                        <span className="fs-6 text-muted">T.....</span><br/>
-                        <span className="fs-4"></span>
                     </div>
                 </Col>
             </Row>
