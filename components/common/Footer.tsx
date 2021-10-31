@@ -7,7 +7,7 @@ library.add(fab);
 const Footer: FC = () => {
 
     return (<>
-        <footer className="footer text-center bg-primary text-white py-4">
+        <footer className="footer text-center bg-primary text-white py-4 mt-auto">
             <h3>Cryptoboard</h3>
             
             <div className="mb-3">

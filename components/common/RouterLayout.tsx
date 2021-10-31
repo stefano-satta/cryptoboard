@@ -1,5 +1,4 @@
 import React, { BaseHTMLAttributes, FC } from "react"
-import { Container, Row, Col } from "react-bootstrap";
 import Footer from "./Footer";
 import SidebarNav from "./SidebarNav";
 
@@ -11,7 +10,7 @@ const RouterLayout: FC<BaseHTMLAttributes<HTMLElement>> = ({children}) => {
             </div>
             
             <div id="page-content-wrapper">
-                <div  className="py-5 px-5 bg-wall">
+                <div className="py-5 px-5 bg-wall h-100">
                     {children}
                 </div>
                 <Footer/>
