@@ -107,3 +107,7 @@ interface History {
 interface CoinHistoryResponse extends Status {
     data: {coin: CoinData, history: HistoryData}
 }
+
+interface CoinsStatsNewsResponse extends Status {
+    data: {coins: Coins[], stats: Stats, news: NewsData}
+}
