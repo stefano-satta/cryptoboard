@@ -83,3 +83,6 @@ a {
   vertical-align: middle;
   padding: .8rem 0.5rem;
 }
+
+/* page details */
+#crypto-description p { color: var(--grey) }
