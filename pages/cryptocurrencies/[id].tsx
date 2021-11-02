@@ -56,7 +56,7 @@ export async function getServerSideProps({params}: any): Promise<GetServerSidePr
     // https://coinranking1.p.rapidapi.com/coin/${id}
     // https://coinranking1.p.rapidapi.com/coin/1/history/7d
     const resCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/${id}`, {headers});
-    const resHistoryCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/1/history/7d`, {headers});
+    const resHistoryCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/${id}/history/7d`, {headers});
 
     const coin: CoinResponse = await resCoin.json();
     const historyCoin: HistoryResponse = await resHistoryCoin.json();
