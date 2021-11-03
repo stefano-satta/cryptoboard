@@ -2,6 +2,7 @@ import type { GetServerSidePropsResult, NextPage } from 'next'
 import React from 'react'
 import Cryptos from '../components/feature/Cryptos'
 import NewsCryptos from '../components/feature/News'
+import QuoteBox from '../components/feature/QuoteBox'
 import Stats from '../components/feature/Stats'
 
 
@@ -9,6 +10,7 @@ const Home: NextPage<CoinsStatsNewsResponse> = (props: CoinsStatsNewsResponse) =
   const {data: {coins, stats, news}} = props;
   
   return (<> 
+    <QuoteBox/>
     <Stats stats={stats}/>
     <Cryptos cryptos={coins}/>
     <NewsCryptos news={news.value}/>
