@@ -9,7 +9,7 @@ const QuoteBox: FC = () => {
                 <div className="pb-3 d-flex align-items-center justify-content-center h-100">
                     <figure className="text-start">
                         <blockquote className="blockquote">
-                            <q className="fst-italic" style={{letterSpacing: '1px'}}>When prosperity comes, do not use all of it</q>
+                            <q className="fst-italic">When prosperity comes, do not use all of it</q>
                         </blockquote>
                         <figcaption className="blockquote-footer text-end mt-2">
                             Confucius

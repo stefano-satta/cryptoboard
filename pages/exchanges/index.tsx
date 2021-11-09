@@ -15,7 +15,7 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<Exc
       'x-rapidapi-key': process.env.rapidApiKey ?? ''
     }
   
-    const resExchanges = await fetch('https://coinranking1.p.rapidapi.com//exchanges', {headers});
+    const resExchanges = await fetch('https://coinranking1.p.rapidapi.com/exchanges?x-access-token=i-have-to-migrate-to-v2', {headers});
     const exchanges: ExchangesResponse = await resExchanges.json();
   
     return !exchanges ? {notFound: true} : {props: {status: exchanges.status, data: exchanges.data}}
