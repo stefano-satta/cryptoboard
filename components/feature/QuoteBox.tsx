@@ -4,7 +4,7 @@ import { FC } from 'react';
 
 const QuoteBox: FC = () => {
     return (<>
-        <div className="w-100 mt-2 mb-5">
+        <div className="w-100 mt-2 mb-5 d-none d-md-block">
             <div className="d-flex justify-content-between w-100 bg-white position-relative rounded py-5 ps-5" style={{height: '220px'}}>
                 <div className="pb-3 d-flex align-items-center justify-content-center h-100">
                     <figure className="text-start">

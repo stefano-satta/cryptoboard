@@ -15,7 +15,7 @@ const ExchangesCrypto: FC<ExchangesProps> = ({exchanges}: ExchangesProps) => {
         <div className="w-100 pb-5">
             <h2 className="mb-3 fw-bold">{`Global Cryptos Exchanges`}</h2>
             <div className="bg-white rounded p-4 mb-5">
-                <Table>
+                <Table responsive>
                     <thead>
                         <tr>
                             <th>#</th>

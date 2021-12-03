@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const ShowLoader = () => {
     return (
-      <div className="w-100 d-flex justify-content-center align-items-center h-100">
+      <div className="w-100 d-flex justify-content-center align-items-center vh-100">
         <Loading/>
       </div>
     )
@@ -27,8 +27,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (<>
     <RouterLayout>
-      { isLoading && <ShowLoader/>} 
-      { !isLoading &&<Component {...pageProps} /> }
+      { isLoading && <ShowLoader/>}
+      { !isLoading && <Component {...pageProps} /> }
     </RouterLayout>
   </>)
 }

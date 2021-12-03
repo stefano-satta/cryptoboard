@@ -4,10 +4,8 @@ import SidebarNav from "./SidebarNav";
 
 const RouterLayout: FC<BaseHTMLAttributes<HTMLElement>> = ({children}) => {
     return (<>
-        <div className="d-flex">
-            <div id="sidebar-wrapper">
-                <SidebarNav/>
-            </div>
+        <div>
+            <SidebarNav/>
             
             <div id="page-content-wrapper">
                 <div className="py-5 px-5 bg-wall h-100">

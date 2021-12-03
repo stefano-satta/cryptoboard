@@ -13,7 +13,7 @@ const NewsCard: FC<NewsCardProps> = ({news}: NewsCardProps) => {
 
     return (<>
     {/* <Link href={news.url} target="_blank"> */}
-        <Card style={{ width: '32%' }} className="border-0 rounded mb-4 cursor-pointer">
+        <Card id="card" className="border-0 rounded mb-4 cursor-pointer">
             {news.image?.thumbnail.contentUrl && <Image src={news.image?.thumbnail.contentUrl} width={100} height={200} className="rounded-top"/>}
             <Card.Body className="py-3 px-3 d-flex flex-column justify-content-between">
                 <Card.Title className="d-flex align-items-center justify-content-between mb-3">
@@ -30,7 +30,6 @@ const NewsCard: FC<NewsCardProps> = ({news}: NewsCardProps) => {
                 <Card.Text className="mb-1 text-grey d-flex justify-content-end">
                     {new Date(news.datePublished).toLocaleDateString('en-US')}
                 </Card.Text>
-
             </Card.Body>
         </Card>
     {/* </Link> */}

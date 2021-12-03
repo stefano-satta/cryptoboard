@@ -1,5 +1,5 @@
 import { useRouter } from "next/dist/client/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useLoadingPage = () => {
     const [isLoading, setLoading] = useState<boolean>(false);
