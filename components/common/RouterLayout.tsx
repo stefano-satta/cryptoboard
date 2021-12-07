@@ -8,7 +8,7 @@ const RouterLayout: FC<BaseHTMLAttributes<HTMLElement>> = ({children}) => {
             <SidebarNav/>
             
             <div id="page-content-wrapper">
-                <div className="py-5 px-5 bg-wall h-100">
+                <div className="py-5 px-4 px-md-5 bg-wall h-100">
                     {children}
                 </div>
                 <Footer/>

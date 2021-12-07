@@ -7,7 +7,6 @@ import LineChart from "../../components/common/LineChat";
 
 const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse) => {
     const {data: {coin, history}} = props;
-    console.log(history.change)
 
     const getLabelChart = () => {
         return history.history.map( date => new Date(date.timestamp).toLocaleDateString('en-US'));
@@ -39,9 +38,9 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                 </div>
             </div>
 
-            <div className="d-flex justify-content-between" >
+            <div className="d-flex flex-wrap">
 
-                <div className="bg-white rounded p-4 mb-5" style={{flex: '0 0 50%'}}>
+                <div className="box bg-white rounded p-4 mb-5">
                     <h2 className="fw-bold mb-3">Stats</h2>
                     <ListGroup>
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
@@ -83,7 +82,7 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                     </ListGroup>
                 </div>
 
-                <div className="bg-white rounded p-4 mb-5 ms-3" style={{flex: '0 0 50%'}}>
+                <div className="box bg-white rounded p-4 mb-5">
                     <h2 className="fw-bold mb-3">Others Info</h2>
                     <ListGroup>
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
@@ -121,18 +120,18 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
             </div>
 
             
-            <div className="d-flex justify-content-between" >
-                <div className="bg-white rounded p-4 mb-5" style={{flex: '0 0 50%'}} id="crypto-description">
+            <div className="d-flex flex-wrap" >
+                <div className="box bg-white rounded p-4 mb-5" id="crypto-description">
                     <h2 className="fw-bold mb-3">What is {coin.coin.name}</h2>
                     {HTMLReactParser(coin.coin.description)}
                 </div>
 
-                <div className="bg-white rounded p-4 mb-5 ms-3" style={{flex: '0 0 50%'}}>
+                <div className=" box bg-white rounded p-4 mb-5">
                     <h2 className="fw-bold mb-3">Useful links</h2>
                     <ListGroup>
                     {
-                        coin.coin?.links.map( link => (
-                            <ListGroup.Item className="d-flex justify-content-between border-0 border-bottom py-4" key={link.name}>
+                        coin.coin?.links.map( (link, index) => (
+                            <ListGroup.Item className="d-flex justify-content-between border-0 border-bottom py-4" key={`${link.name}-${index}`}>
                                 <span className="text-grey">{link.type}</span>
                                 <span>
                                 <a href={link.url} target="_blank" rel="noreferrer" className="text-black fw-bold">
