@@ -30,7 +30,7 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<Coi
     'x-rapidapi-key': process.env.rapidApiKey ?? ''
   }
 
-  const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=10&x-access-token=i-have-to-migrate-to-v2', {headers: headersCoin});
+  const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=10', {headers: headersCoin});
   const coins: CoinsResponse = await resCrypto.json();
 
   const resCryptoNews = await fetch('https://bing-news-search1.p.rapidapi.com/news/search?q=Cryptocurrency&safeSearch=Off&count=3&setLang=en-US', {headers: headersNews});

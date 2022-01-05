@@ -12,7 +12,7 @@ interface CyptoCardProps {
 const CryptoCard: FC<CyptoCardProps> = ({crypto}: CyptoCardProps) => {
 
     return (<>
-        <Link href={`/cryptocurrencies/${crypto.id}`}>
+        <Link href={`/cryptocurrencies/${crypto.uuid}`}>
             <Card id="card" className="border-0 rounded p-2 mb-4 cursor-pointer">
                 <Card.Body>
                     <Card.Title className="d-flex align-items-center justify-content-between mb-5">

@@ -16,7 +16,7 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<Coi
     'x-rapidapi-key': process.env.rapidApiKey ?? ''
   }
 
-  const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=100&x-access-token=i-have-to-migrate-to-v2', {headers});
+  const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=100', {headers});
   const coins: CoinsResponse = await resCrypto.json();
 
   return !coins ? {notFound: true} : {props: {status: coins.status, data: coins.data}}

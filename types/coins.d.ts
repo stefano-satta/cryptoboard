@@ -32,28 +32,22 @@ interface Base {
 }
 
 interface Coin {
-    id: number;
     uuid: string;
-    slug: string;
     symbol: string;
     name: string;
     description: string;
     color?: string;
-    iconType: string;
     iconUrl: string;
     websiteUrl?: string;
     socials: Social[];
     links: Link[];
-    confirmedSupply: boolean;
     numberOfMarkets: number;
     numberOfExchanges: number;
     type: string;
-    volume: number;
-    marketCap: number;
+    "24hVolume": string;
+    marketCap: string;
     price: string;
-    circulatingSupply: number;
-    totalSupply: number;
-    approvedSupply: boolean;
+    supply: Supply;
     firstSeen: number;
     listedAt: number;
     change: number;
@@ -61,6 +55,12 @@ interface Coin {
     history: string[];
     allTimeHigh: AllTimeHigh;
     penalty: boolean;
+}
+
+interface Supply {
+    total: number;
+    confirmed: boolean;
+    circulating: number;
 }
 
 interface Social {

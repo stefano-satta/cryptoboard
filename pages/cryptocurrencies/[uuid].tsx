@@ -60,7 +60,7 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
                                     { style: 'currency', currency: 'USD'})
-                                        .format(Number(coin.coin.volume))}
+                                        .format(Number(coin.coin["24hVolume"]))}
                             </span>
                         </ListGroup.Item> 
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
@@ -96,14 +96,14 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Approved Supply</span>
                             <span className="fw-bold">
-                                {   coin.coin.approvedSupply ? <FontAwesomeIcon icon={'check'} className="text-success" size="lg"/> : <FontAwesomeIcon icon={'times'} size="lg" className="text-danger"/>  }
+                                {   coin.coin?.supply?.confirmed ? <FontAwesomeIcon icon={'check'} className="text-success" size="lg"/> : <FontAwesomeIcon icon={'times'} size="lg" className="text-danger"/>  }
                             </span>
                         </ListGroup.Item> 
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Total Supply</span>
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
-                                    { style: 'currency', currency: 'USD'}).format(Number(coin.coin.totalSupply))
+                                    { style: 'currency', currency: 'USD'}).format(Number(coin.coin?.supply?.total))
                                 }
                             </span>
                         </ListGroup.Item> 
@@ -111,7 +111,7 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                             <span className="text-grey">Circulating Supply</span>
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
-                                    { style: 'currency', currency: 'USD'}).format(Number(coin.coin.circulatingSupply))
+                                    { style: 'currency', currency: 'USD'}).format(Number(coin.coin?.supply?.circulating))
                                 }
                             </span>
                         </ListGroup.Item>
@@ -134,9 +134,9 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                             <ListGroup.Item className="d-flex justify-content-between border-0 border-bottom py-4" key={`${link.name}-${index}`}>
                                 <span className="text-grey">{link.type}</span>
                                 <span>
-                                <a href={link.url} target="_blank" rel="noreferrer" className="text-black fw-bold">
-                                    {link.name}
-                                </a>
+                                    <a href={link.url} target="_blank" rel="noreferrer" className="text-black fw-bold">
+                                        {link.name}
+                                    </a>
                                 </span>
                             </ListGroup.Item>
                         ))
@@ -149,7 +149,7 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
 }
 
 export async function getServerSideProps({params}: any): Promise<GetServerSidePropsResult<CoinHistoryResponse>> {
-    const {id} = params;
+    const {uuid} = params;
 
     const headers = {
       'x-rapidapi-host': process.env.coinRankingHost ?? '',
@@ -158,14 +158,17 @@ export async function getServerSideProps({params}: any): Promise<GetServerSidePr
   
     // https://coinranking1.p.rapidapi.com/coin/${id}
     // https://coinranking1.p.rapidapi.com/coin/1/history/7d
-    const resCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/${id}?x-access-token=i-have-to-migrate-to-v2`, {headers});
-    const resHistoryCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/${id}/history/7d?x-access-token=i-have-to-migrate-to-v2`, {headers});
+    const resCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid}`, {headers});
+    const resHistoryCoin = await fetch(`https://coinranking1.p.rapidapi.com/coin/${uuid}/history?7d`, {headers});
 
     const coin: CoinResponse = await resCoin.json();
     const historyCoin: HistoryResponse = await resHistoryCoin.json();
   
     return !coin ? {notFound: true} : {props: {status: coin.status, data: {coin: coin.data, history: historyCoin.data}}}
   }
+
+
+  //?x-access-token=i-have-to-migrate-to-v2
 
 
 
