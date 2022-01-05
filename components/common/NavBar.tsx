@@ -15,7 +15,7 @@ const NavBar = () => {
         <Navbar bg="white" expand="lg" fixed="top" collapseOnSelect>
             <Container fluid className="px-lg-5">
                 <Navbar.Brand className="cursor-pointer">
-                    <Link href="/">
+                    <Link href="/" passHref>
                         <a>
                             <FontAwesomeIcon icon={['fab', 'bitcoin']} className="me-2"/>
                             Cryptoboard
@@ -26,32 +26,34 @@ const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav" className="pt-sm-3 pt-lg-0">
                     <Nav className="ms-auto">
                         <Nav.Item>
-                            <Nav.Link eventKey="1" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/' ? 'active': ''}`}>
-                            <Link href="/">
-                                    <a>
-                                        <FontAwesomeIcon icon={'table'} className="me-2" size="lg"/>
+                            <Link href="/" passHref>
+                                <Nav.Link eventKey="1" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/' ? 'active': ''}`}>
+                                <FontAwesomeIcon icon={'table'} className="me-2" size="lg"/>
                                         Dashboard
-                                    </a>
-                                    </Link>
-                            </Nav.Link>
+                                </Nav.Link>
+                            </Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link eventKey="2" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/cryptocurrencies' ? 'active': ''}`}>
-                                <FontAwesomeIcon icon={'chart-line'} className="me-2" size="lg"/>
-                                <Link href="/cryptocurrencies">Cryptos</Link>
-                            </Nav.Link>
+                            <Link href="/cryptocurrencies" passHref>
+                                <Nav.Link eventKey="2" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/cryptocurrencies' ? 'active': ''}`}>
+                                    <FontAwesomeIcon icon={'chart-line'} className="me-2" size="lg"/>
+                                    Cryptos
+                                </Nav.Link>
+                            </Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link eventKey="3" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/exchanges' ? 'active': ''}`}>
                                 <FontAwesomeIcon icon={'handshake'} className="me-2" size="lg"/>
                                 <Link href="/exchanges">Exchanges</Link>
                             </Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
-                            <Nav.Link eventKey="4" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/news' ? 'active': ''}`}>
-                                <FontAwesomeIcon icon={'newspaper'} className="me-2" size="lg"/>
-                                <Link href="/news">News</Link>
-                            </Nav.Link>
+                                <Link href="/news" passHref>
+                                    <Nav.Link eventKey="4" className={`mx-2 rounded py-3 px-4 ${router.pathname === '/news' ? 'active': ''}`}>
+                                        <FontAwesomeIcon icon={'newspaper'} className="me-2" size="lg"/>
+                                        News
+                                    </Nav.Link>
+                                </Link>
                         </Nav.Item>
                     </Nav>
                 </Navbar.Collapse>

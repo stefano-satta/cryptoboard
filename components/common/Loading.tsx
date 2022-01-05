@@ -3,9 +3,10 @@ import { Spinner } from "react-bootstrap";
 
 const Loading: FC = () => {
     return (
-        <Spinner animation="border" variant="primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-        </Spinner>
+        <div className="container vh-100 w-100 d-flex justify-content-center align-items-center flex-column">
+            <Spinner animation="border" variant="primary" role="status"></Spinner>
+            <div className="text-primary">Loading...</div>
+        </div>
     )
 }
 
