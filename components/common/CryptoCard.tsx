@@ -40,7 +40,7 @@ const CryptoCard: FC<CyptoCardProps> = ({crypto}: CyptoCardProps) => {
                         <span className="text-muted">Market Cap:</span> <span className="">
                             {new Intl.NumberFormat('en-US', 
                                 { style: 'currency', currency: 'USD'})
-                                .format(crypto.marketCap)
+                                .format(Number(crypto.marketCap))
                             }
                         </span>
                     </Card.Text>
