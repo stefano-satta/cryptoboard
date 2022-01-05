@@ -67,7 +67,7 @@ a {
 
 #page-content-wrapper {
   width: 100%;
-  /* margin-left: 15rem; */
+  margin-top: 56px;
 }
 
 #float-menu {
@@ -112,4 +112,8 @@ a {
 @media screen and (max-width: 767px) {
   #card { width: 100%;}
   .box { flex: 0 1 100% }
+}
+
+@media screen and (min-width: 992px) {
+  #page-content-wrapper { margin-top: 72px; }
 }
