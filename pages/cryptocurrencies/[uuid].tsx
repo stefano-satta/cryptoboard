@@ -20,7 +20,7 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
 
     return (<>
         <div className="w-100">
-            <h2 className="mb-4 fw-bold">{`${coin.coin.name} (${coin.coin.slug}) details`}</h2>
+            <h2 className="mb-4 fw-bold">{`${coin.coin?.name} (${coin.coin?.symbol}) details`}</h2>
             
             <div className="w-100">
                 <div className="bg-white rounded p-4 mb-5">
@@ -30,7 +30,7 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
                                             { style: 'currency', currency: 'USD'})
-                                                .format(Number(coin.coin.price))}
+                                                .format(Number(coin.coin?.price))}
                             </span>
                         </span>
                     </div>
@@ -48,12 +48,12 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
                                     { style: 'currency', currency: 'USD'})
-                                        .format(Number(coin.coin.price))}
+                                        .format(Number(coin.coin?.price))}
                             </span>
                         </ListGroup.Item>
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Rank</span>
-                            <span className="fw-bold">{coin.coin.rank}</span>
+                            <span className="fw-bold">{coin.coin?.rank}</span>
                         </ListGroup.Item> 
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Volume (24H)</span>
@@ -68,14 +68,14 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
                                 { style: 'currency', currency: 'USD'})
-                                    .format(Number(coin.coin.marketCap))}
+                                    .format(Number(coin.coin?.marketCap))}
                             </span>
                         </ListGroup.Item> 
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">All Time High</span>
                             <span className="fw-bold">
                                 { new Intl.NumberFormat('en-US', 
-                                    { style: 'currency', currency: 'USD'}).format(Number(coin.coin.allTimeHigh.price))
+                                    { style: 'currency', currency: 'USD'}).format(Number(coin.coin?.allTimeHigh?.price))
                                 }
                             </span>
                         </ListGroup.Item>
@@ -87,11 +87,11 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
                     <ListGroup>
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Number of Markets</span>
-                            <span className="fw-bold">{coin.coin.numberOfMarkets}</span>
+                            <span className="fw-bold">{coin.coin?.numberOfMarkets}</span>
                         </ListGroup.Item>
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Number of Exchanges</span>
-                            <span className="fw-bold">{coin.coin.numberOfExchanges}</span>
+                            <span className="fw-bold">{coin.coin?.numberOfExchanges}</span>
                         </ListGroup.Item> 
                         <ListGroup.Item className="d-flex justify-content-between py-3 border-0 border-bottom">
                             <span className="text-grey">Approved Supply</span>
