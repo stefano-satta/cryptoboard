@@ -13,10 +13,7 @@ library.add(fas, fab);
 const NavBar = () => {
     const router = useRouter();
     const refNav = createRef<HTMLDivElement>();
-
-    useEffect(() => {
-        useScrolledNavbar(refNav)
-    }, [])
+    useScrolledNavbar(refNav)
 
     return (<>
         <Navbar bg="white" expand="lg" fixed="top" collapseOnSelect ref={refNav}>
