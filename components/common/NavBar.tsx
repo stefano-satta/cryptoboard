@@ -16,7 +16,7 @@ const NavBar = () => {
 
     useEffect(() => {
         useScrolledNavbar(refNav)
-    })
+    }, [])
 
     return (<>
         <Navbar bg="white" expand="lg" fixed="top" collapseOnSelect ref={refNav}>
