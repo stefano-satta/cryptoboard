@@ -1,12 +1,10 @@
 import React, { BaseHTMLAttributes, FC } from "react"
 import Footer from "./Footer";
-import SidebarNav from "./SidebarNav";
 import NavBar from "./NavBar";
 
 const RouterLayout: FC<BaseHTMLAttributes<HTMLElement>> = ({children}) => {
     return (<>
         <div>
-            {/* <SidebarNav/> */}
             <NavBar/>
             
             <div id="page-content-wrapper">
