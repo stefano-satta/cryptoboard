@@ -5,25 +5,32 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { useRouter } from "next/dist/client/router";
+import React, {createRef, useEffect} from "react";
+import useScrolledNavbar from "../../hooks/useScrolledNavbar";
 library.add(fas, fab);
 
 
 const NavBar = () => {
     const router = useRouter();
+    const refNav = createRef<HTMLDivElement>();
+
+    useEffect(() => {
+        useScrolledNavbar(refNav)
+    })
 
     return (<>
-        <Navbar bg="white" expand="lg" fixed="top" collapseOnSelect>
+        <Navbar bg="white" expand="lg" fixed="top" collapseOnSelect ref={refNav}>
             <Container fluid className="px-lg-5">
                 <Navbar.Brand className="cursor-pointer">
                     <Link href="/" passHref>
-                        <a>
+                        <Nav.Link className="text-black fw-bold fs-4">
                             <FontAwesomeIcon icon={['fab', 'bitcoin']} className="me-2"/>
                             Cryptoboard
-                        </a>
+                        </Nav.Link>
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                <Navbar.Collapse id="basic-navbar-nav" className="pt-sm-3 pt-lg-0">
+                <Navbar.Collapse id="basic-navbar-nav" className="pt-4 pt-lg-0">
                     <Nav className="ms-auto">
                         <Nav.Item>
                             <Link href="/" passHref>

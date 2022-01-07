@@ -11,9 +11,7 @@ const useLoadingPage = () => {
         router.events.on('routeChangeError', () => setLoading(false));
     }
 
-
     return {isLoading, handleLoadingOnChangeRouting}
-
 }
 
 export default useLoadingPage;
