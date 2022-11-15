@@ -3,8 +3,10 @@ import React, { FC } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 library.add(fab);
+import useCurrentDate from '../../hooks/useCurrentDate';
 
 const Footer: FC = () => {
+    const {getCurrentYear} = useCurrentDate();
 
     return (<>
         <footer className="footer text-center bg-primary text-white py-4 mt-auto">
@@ -18,7 +20,7 @@ const Footer: FC = () => {
                     <FontAwesomeIcon icon={['fab', 'linkedin-in']} className="me-3" size="lg"/>
                 </a>
             </div>
-            <p className="mb-0">&copy; Stefano Satta 2021</p>
+            <p className="mb-0">&copy; Stefano Satta {getCurrentYear()}</p>
             <p className="mb-0"><small>Made it with NextJS and RapidAPI</small></p>
         </footer>
     </>)
