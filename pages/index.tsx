@@ -36,6 +36,8 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<Coi
   const resCryptoNews = await fetch('https://bing-news-search1.p.rapidapi.com/news/search?q=Cryptocurrency&safeSearch=Off&count=3&setLang=en-US', {headers: headersNews});
   const news: NewsData = await resCryptoNews.json();
 
+  console.log('news ', news)
+
   return !coins && !news ? {notFound: true} : {props: 
     { status: coins.status, data: { 
       coins: coins.data.coins, 
