@@ -4,7 +4,7 @@ import NewsCryptos from '../../components/feature/News';
 
 const News: NextPage<NewsResponse> = (news: NewsResponse) => {
     return (<> 
-        <NewsCryptos news={news.data?.body}/>
+        <NewsCryptos news={news.data?.body.slice(0,50)}/>
     </>)
 }
 

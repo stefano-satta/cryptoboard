@@ -99,6 +99,7 @@ a {
 @media screen and (max-width: 767px) {
   #card { width: 100%;}
   .box { flex: 0 1 100% }
+  .navbar-nav { height: 150px; }
 }
 
 @media screen and (min-width: 992px) {

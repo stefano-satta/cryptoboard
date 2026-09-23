@@ -39,15 +39,15 @@ const NavBar: FC = () => {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav" className="pt-4 pt-lg-0">
-                    <Nav className="ms-auto d-flex align-items-center justify-content-center">
+                    <Nav className="ms-auto d-flex align-items-center justify-content-between">
                         {
                             ROUTING.map( (item, index) => (
-                                <Nav.Item key={item.name}>
-                                    <Link href={item.url} passHref className={`mx-2 rounded py-3 px-4 ${currentPage == item.url ? 'active': ''}`} key={index}
+                                <Nav.Item key={item.name} className="mb-sm-4 mb-md-0">
+                                    <Nav.Link href={item.url} eventKey={index} className={`mx-2 rounded py-3 px-4 ${currentPage == item.url ? 'active': ''}`} key={index}
                                           onClick={() => handleClickLink(router.pathname)}>
                                             <FontAwesomeIcon icon={item.icon as IconProp} className="me-2" size="lg"/>
                                             {item.name}
-                                    </Link>
+                                    </Nav.Link>
                                 </Nav.Item>
                             ))
                         }

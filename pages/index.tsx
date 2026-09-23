@@ -39,7 +39,7 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<Coi
     { status: coins.status, data: { 
       coins: coins.data.coins, 
       stats: coins.data.stats, 
-      news: news
+      news: news,
     }}}
 }
 
