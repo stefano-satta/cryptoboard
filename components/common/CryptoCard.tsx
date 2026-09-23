@@ -17,7 +17,7 @@ const CryptoCard: FC<CyptoCardProps> = ({crypto}: CyptoCardProps) => {
                 <Card.Body>
                     <Card.Title className="d-flex align-items-center justify-content-between mb-5">
                         <div className="d-flex align-items-center">
-                            <Image src={crypto.iconUrl} width={30} height={30}/>
+                            <Image src={crypto.iconUrl} width={30} height={30} alt={crypto.name}/>
                             <span className="ms-2 fw-semi-bold">{crypto.name}</span>
                         </div>
                         <div>

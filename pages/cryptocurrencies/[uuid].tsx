@@ -1,3 +1,5 @@
+'use client'
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HTMLReactParser from "html-react-parser";
 import { GetServerSidePropsResult, NextPage } from "next";
@@ -9,13 +11,12 @@ const CryptoDetail: NextPage<CoinHistoryResponse> = (props: CoinHistoryResponse)
     const {data: {coin, history}} = props;
 
     const getLabelChart = () => {
-        return history.history.map( date => new Date(date.timestamp).toLocaleDateString('en-US'));
+        return history.history.map( date => new Date(date.timestamp).toLocaleDateString());
     }
 
     const getDataChart = () => {
-        return history.history.map( item => item.price);
+        return history.history.map( item => Number(item.price));
     }
-
 
 
     return (<>

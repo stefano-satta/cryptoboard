@@ -1,20 +1,21 @@
 import Url from "./url";
+import { faTable, faChartLine, faNewspaper } from "@fortawesome/free-solid-svg-icons";
 
 const ROUTING = [
     {
         name: 'Dashboard',
         url: Url.Dashboard,
-        icon: 'table'
+        icon: faTable
     },
     {
         name: 'Cryptos',
         url: Url.Cryptos,
-        icon: 'chart-line'
+        icon: faChartLine
     },
     {
         name: 'News',
         url: Url.News,
-        icon: 'newspaper'
+        icon: faNewspaper
     }   
 ]
 

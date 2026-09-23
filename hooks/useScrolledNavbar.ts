@@ -1,6 +1,6 @@
 import {RefObject, useEffect} from "react";
 
-const useScrolledNavbar = (refNavbar: RefObject<HTMLDivElement>) => {
+const useScrolledNavbar = (refNavbar: RefObject<HTMLDivElement | null>) => {
     
     useEffect(() => {
         window.addEventListener('scroll', () => {

@@ -1,26 +1,23 @@
 import { GetServerSidePropsResult, NextPage } from "next";
 import NewsCryptos from '../../components/feature/News';
-import { NewsResponseType } from "../../utility/enum";
-
 
 
 const News: NextPage<NewsResponse> = (news: NewsResponse) => {
     return (<> 
-        <NewsCryptos news={news.data?.value}/>
+        <NewsCryptos news={news.data?.body}/>
     </>)
 }
 
 export async function getServerSideProps(): Promise<GetServerSidePropsResult<NewsResponse>> {
     const headers = {
-        'x-bingapis-sdk': 'true',
-        'x-rapidapi-host': process.env.bingNewsHost ?? '',
-        'x-rapidapi-key': process.env.rapidApiKey ?? ''
+        'x-rapidapi-host': process.env.NEXT_PUBLIC_YAHOO_NEWS_HOST || '',
+        'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPID_API_KEY || ''
     }
   
-    const resCryptoNews = await fetch('https://bing-news-search1.p.rapidapi.com/news/search?q=Cryptocurrency&safeSearch=Off&count=15&setLang=en-US', {headers});
+    const resCryptoNews = await fetch('https://yahoo-finance15.p.rapidapi.com/api/v2/markets/news?type=ALL', {headers});
     const news: NewsData = await resCryptoNews.json();
   
-    return !news ? {notFound: true} : {props: {status: news._type !== NewsResponseType.ErrorResponse ? 'success':'fail', data: news}}
+    return !news ? {notFound: true} : {props: {status: news.meta.status === 200 ? 'success':'fail', data: news}}
   }
 
 export default News;

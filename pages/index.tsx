@@ -13,7 +13,7 @@ const Home: NextPage<CoinsStatsNewsResponse> = (props: CoinsStatsNewsResponse) =
     <QuoteBox/>
     <Stats stats={stats}/>
     <Cryptos cryptos={coins}/>
-    <NewsCryptos news={news.value}/>
+    <NewsCryptos news={news.body.slice(0, 10)}/>
   </>)
 }
 
@@ -25,18 +25,15 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<Coi
   }
 
   const headersNews = {
-    'x-bingapis-sdk': 'true',
-    'x-rapidapi-host': process.env.bingNewsHost ?? '',
-    'x-rapidapi-key': process.env.rapidApiKey ?? ''
+    'x-rapidapi-host': process.env.NEXT_PUBLIC_YAHOO_NEWS_HOST || '',
+    'x-rapidapi-key': process.env.NEXT_PUBLIC_RAPID_API_KEY || ''
   }
 
   const resCrypto = await fetch('https://coinranking1.p.rapidapi.com/coins?limit=10', {headers: headersCoin});
   const coins: CoinsResponse = await resCrypto.json();
 
-  const resCryptoNews = await fetch('https://bing-news-search1.p.rapidapi.com/news/search?q=Cryptocurrency&safeSearch=Off&count=3&setLang=en-US', {headers: headersNews});
+  const resCryptoNews = await fetch('https://yahoo-finance15.p.rapidapi.com/api/v2/markets/news?type=ALL', {headers: headersNews});
   const news: NewsData = await resCryptoNews.json();
-
-  console.log('news ', news)
 
   return !coins && !news ? {notFound: true} : {props: 
     { status: coins.status, data: { 

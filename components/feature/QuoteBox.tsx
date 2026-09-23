@@ -17,7 +17,7 @@ const QuoteBox: FC = () => {
                     </figure>
                 </div>
                 <div className="position-absolute" style={{top: '-60px', right: '0', zIndex: 1000}}>
-                    <Image src="/cryptofolio.png" alt="crypto image" width="300" height="300"/>
+                    <Image src="/cryptofolio.png" alt="crypto image" width="300" height="300" loading="eager"/>
                 </div>
             </div>
         </div>

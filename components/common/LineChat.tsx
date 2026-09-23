@@ -1,42 +1,55 @@
 import { FC } from "react";
-import { Line } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+import { Line } from "react-chartjs-2";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
 interface LineChartProps {
-    dataChart: number[] | string[];
-    labels: string[]
+    dataChart: number[];
+    labels: string[];
 }
 
-
-
-const LineChart: FC<LineChartProps> = (props: LineChartProps) => {
-    const {dataChart, labels} = props;
+const LineChart: FC<LineChartProps> = ({ dataChart, labels }) => {
 
     const options = {
         scales: {
-          y: {
-            beginAtZero: false
-          }
-        }
+            y: {
+                beginAtZero: false,
+            },
+        },
     };
 
     const data = {
-        labels: labels,
+        labels,
         datasets: [
-          {
-            label: 'USD price',
-            data: dataChart,
-            fill: false,
-            backgroundColor: '#1d3f83',
-            borderColor: '#1d3f83',
-          },
+            {
+                label: "USD price",
+                data: dataChart,
+                fill: false,
+                backgroundColor: "#1d3f83",
+                borderColor: "#1d3f83",
+            },
         ],
-      };
+    };
 
-
-
-    return (
-        <Line data={data} options={options} />
-    )
-}
+    return <Line data={data} options={options} />;
+};
 
 export default LineChart;

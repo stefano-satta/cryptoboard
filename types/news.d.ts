@@ -3,50 +3,24 @@ interface NewsResponse extends Status {
 }
 
 interface NewsData {
-    _type: string;
-    readLink: string;
-    queryContext: QueryContext;
-    totalEstimatedMatches: number;
-    sort: Sort[];
-    value: News[];
+    meta: Meta;
+    body: News[];
 }
 
-interface QueryContext {
-    _type: string;
-    originalQuery: string;
-    adultIntent: boolean;
-}
-
-interface Sort {
-    _type: string;
-    name: string;
-    id: string;
-    isSelected: boolean;
-    url: string;
+interface Meta {
+    version: string;
+    status: number;
+    copywrite: string;
+    total: number;
 }
 
 interface News {
-    _type: NewsResponseType;
-    name: string;
     url: string;
-    description: string;
-    provider: Provider[];
-    datePublished: Date;
-    category?: string;
-    image?: Image;
-}
-
-interface Image {
-    _type: string;
-    isLicensed: boolean;
-    thumbnail: {_type: string; contentUrl: string; height: number; width: number;}
-}
-
-type NewsResponseType = 'NewsArticle' | 'ErrorResponse';
-
-
-interface Provider {
-    image: Image;
-    name: string;
-    _type: string;
+    img: string;
+    title: string;
+    text: string;
+    source: string;
+    type: string;
+    time: string;
+    ago: string;
 }
