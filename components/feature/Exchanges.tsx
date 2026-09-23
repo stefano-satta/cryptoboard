@@ -32,7 +32,7 @@ const ExchangesCrypto: FC<ExchangesProps> = ({exchanges}: ExchangesProps) => {
                                 <td>{exchange.rank}</td>
                                 <td className="">
                                     <div className="d-flex align-items-center">
-                                        <Image src={exchange.iconUrl} width={30} height={30}/>
+                                        {/*<Image src={exchange.iconUrl} width={30} height={30}/>*/}
                                         <span className="ms-3">{exchange.name}</span>
                                     </div>
                                     
