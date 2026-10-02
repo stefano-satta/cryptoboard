@@ -4,7 +4,7 @@ import NewsCryptos from '../../components/feature/News';
 
 const News: NextPage<NewsResponse> = (news: NewsResponse) => {
     return (<> 
-        <NewsCryptos news={news.data?.body.slice(0,50)}/>
+        <NewsCryptos news={news.data?.body?.slice(0,50)}/>
     </>)
 }
 
@@ -17,7 +17,7 @@ export async function getServerSideProps(): Promise<GetServerSidePropsResult<New
     const resCryptoNews = await fetch('https://yahoo-finance15.p.rapidapi.com/api/v2/markets/news?type=ALL', {headers});
     const news: NewsData = await resCryptoNews.json();
   
-    return !news ? {notFound: true} : {props: {status: news.meta.status === 200 ? 'success':'fail', data: news}}
+    return !news ? {notFound: true} : {props: {status: news.meta?.status === 200 ? 'success':'fail', data: news}}
   }
 
 export default News;

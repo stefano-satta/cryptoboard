@@ -13,7 +13,7 @@ const Home: NextPage<CoinsStatsNewsResponse> = (props: CoinsStatsNewsResponse) =
     <QuoteBox/>
     <Stats stats={stats}/>
     <Cryptos cryptos={coins}/>
-    <NewsCryptos news={news.body.slice(0, 10)}/>
+    <NewsCryptos news={news.body?.slice(0, 10)}/>
   </>)
 }
 
